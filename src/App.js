@@ -1,25 +1,36 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Image from './image';
+import Name from './Name';
+import Price from './price';
+import Description from './description';
+import newObj from "./product";
+import Card from 'react-bootstrap/Card';
+
+
+let defObj = JSON.parse(newObj);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={defObj.Image}/>
+      <Card.Body>
+        <Card.Title><Name Name={defObj.Name}/></Card.Title>
+        <Card.Text>
+        <Price Price={defObj.Price}/>
+        </Card.Text>
+        <Card.Text>
+        <Description Description={defObj.Description}/>
+        </Card.Text>
+        
+      </Card.Body>
+    </Card>
   );
 }
+
+
+
+
 
 export default App;
